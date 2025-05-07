@@ -1,2 +1,1 @@
-# Ishara-Setu
-Nepali sign Language detection
+Nepali Sign language detection
