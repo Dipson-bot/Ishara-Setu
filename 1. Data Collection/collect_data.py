@@ -100,7 +100,7 @@ while True:
         image_count += 1
         if image_count >= num_images_to_capture:
             capture_images = False
-            break  # Exit the loop after capturing the desired number of images
+            # break  # Exit the loop after capturing the desired number of images
 
 cap.release()
 cv2.destroyAllWindows()

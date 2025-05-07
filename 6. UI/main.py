@@ -2,8 +2,8 @@ from tkinter import *
 import cv2
 from PIL import Image, ImageTk
 import sqlite3
-import tensorflow.compat.v2 as tf
-from keras.models import load_model
+import tensorflow as tf
+from tensorflow.keras.models import load_model
 import numpy as np
 import pygame
 import io
@@ -16,11 +16,14 @@ gender = "female"
 
 words = {"text": "", "words1": "", "words2": ""}
 
-model = load_model("model.h5")
+model = load_model("C:/Users/Acer/Documents/GitHub/Ishara-Setu/6. UI/model.h5")
+
+
+#model = tf.keras.models.load_model("model.h5", compile=False)
 
 root = Tk()
 root.title("Nepali Sign Language Recognition and Translation")
-root.iconbitmap("icon.ico")
+root.iconbitmap("C:/Users/Acer/Documents/GitHub/Ishara-Setu/6. UI/icon.ico")
 root.config(background="#000000")
 
 text = StringVar()
@@ -171,7 +174,7 @@ def keras_predict(model, image):
 
 
 def get_pred_text_from_db(pred_class):
-    conn = sqlite3.connect("gesture_db1.db")
+    conn = sqlite3.connect("C:/Users/Acer/Documents/GitHub/Ishara-Setu/6. UI/gesture_db1.db")
     cmd = "SELECT g_name FROM gesture WHERE g_id=" + str(pred_class)
     cursor = conn.execute(cmd)
     for row in cursor:
