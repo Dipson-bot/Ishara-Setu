@@ -6,13 +6,13 @@
 
 ## Table of Contents
 
-- [Ishara-Setu](#ishara-setu)
-- [Project Structure](#Project-Structure)
-- [Requirements](#requirements)
-- [Usage](#usage)
-- [Notes](#notes)
-- [Running the Project](#running-the-project)
-- [License](#license)
+- [Ishara-Setu](##ishara-setu)
+- [Project Structure](##Project-Structure)
+- [Requirements](##requirements)
+- [Usage](###usage)
+- [Notes](##notes)
+- [Running the Project](##running-the-project)
+- [License](##license)
 
 ---
 
