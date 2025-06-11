@@ -14,6 +14,7 @@ import numpy as np
 import time
 import matplotlib.pyplot as plt
 import itertools
+import cv2
 
 def plot_confusion_matrix(cm, target_names, title='Confusion matrix', cmap=None, normalize=True):
   accuracy = np.trace(cm) / float(np.sum(cm))
@@ -54,30 +55,58 @@ def plot_confusion_matrix(cm, target_names, title='Confusion matrix', cmap=None,
   plt.xlabel('Predicted label\naccuracy={:0.4f}; misclass={:0.4f}'.format(accuracy, misclass))
   plt.savefig('confusion_matrix.png')
 
-image_x, image_y = 300, 300
-with open("/content/drive/MyDrive/nsl-data/test_images", "rb") as f:
-	test_images = np.array(pickle.load(f))
-with open("/content/drive/MyDrive/nsl-data/test_labels", "rb") as f:
-	test_labels = np.array(pickle.load(f), dtype=np.int32)
-test_images = np.reshape(test_images, (test_images.shape[0], image_x, image_y, 1))
+# Step 2: Verify Preprocessing Consistency
+# Ensure test images are resized, normalized, and reshaped consistently with training
+image_x, image_y = 128, 128
+with open("nsldata/test_images", "rb") as f:
+    test_images = np.array(pickle.load(f))
+with open("nsldata/test_labels", "rb") as f:
+    test_labels = np.array(pickle.load(f), dtype=np.int32)
 
-model = load_model('/content/drive/MyDrive/nsl-data/model.h5')
+# Resize, normalize, and reshape test images
+test_images = np.array([cv2.resize(img, (image_y, image_x)) for img in test_images])
+test_images = test_images.astype('float32') / 255.0
+test_images = test_images.reshape(test_images.shape[0], image_x, image_y, 1)  # Add channel dimension
+
+model = load_model('finalNsl.h5')
+
+# Step 3: Analyze Predictions
+# Predict and analyze a few test samples
+for i in range(5):  # Analyze 5 random test samples
+    img = test_images[i]
+    label = test_labels[i]
+    pred_probabs = model.predict(img.reshape(1, image_x, image_y, 1))
+    pred_class = np.argmax(pred_probabs)
+    print(f"Test Sample {i}: True Label = {label}, Predicted Label = {pred_class}, Confidence = {pred_probabs[0][pred_class]:.2f}")
+
+# Step 4: Add Class Weights
+# Calculate class weights to handle imbalance
+from sklearn.utils.class_weight import compute_class_weight
+
+class_weights = compute_class_weight(
+    class_weight='balanced',
+    classes=np.unique(test_labels),
+    y=test_labels
+)
+class_weights = dict(enumerate(class_weights))
+print("Class Weights:", class_weights)
+
 pred_labels = []
 
 start_time = time.time()
 pred_probabs = model.predict(test_images)
 end_time = time.time()
-pred_time = end_time-start_time
-avg_pred_time = pred_time/test_images.shape[0]
-print("Time taken to predict %d test images is %ds" %(test_images.shape[0], pred_time))
+pred_time = end_time - start_time
+avg_pred_time = pred_time / test_images.shape[0]
+print("Time taken to predict %d test images is %ds" % (test_images.shape[0], pred_time))
 print('Average prediction time: %fs' % (avg_pred_time))
 
 for pred_probab in pred_probabs:
-	pred_labels.append(list(pred_probab).index(max(pred_probab)))
+    pred_labels.append(list(pred_probab).index(max(pred_probab)))
 
 cm = confusion_matrix(test_labels, np.array(pred_labels))
 classification_report = classification_report(test_labels, np.array(pred_labels))
 print('\n\nClassification Report') 
 print('---------------------------')
 print(classification_report)
-plot_confusion_matrix(cm, range(16), normalize=False)
+plot_confusion_matrix(cm, range(36), normalize=False)

@@ -33,6 +33,7 @@ characters = [
     'P', 'Q', 'R', 'S', 'T', 
     'U', 'V', 'W', 'X', 'Y', 'Z']
 
+
 # Create sub-folders for each character in train and test directories
 for char in characters:
     os.makedirs(f"{train_directory}/{char}", exist_ok=True)
@@ -100,7 +101,7 @@ while True:
         image_count += 1
         if image_count >= num_images_to_capture:
             capture_images = False
-            # break  # Exit the loop after capturing the desired number of images
+             # Exit the loop after capturing the desired number of images
 
 cap.release()
 cv2.destroyAllWindows()

@@ -1,0 +1,69 @@
+ Nepali Sign Language Recognition
+
+1. Data Collection (collect_data.py):
+- Images of Nepali characters and digits are captured using a webcam.
+- The user presses keys corresponding to characters to capture images.
+- Images are processed (grayscale, blur, threshold) and saved in train/test folders.
+- A 70-30 split is used for training and testing datasets.
+- Each character has its own subfolder in train and test directories.
+
+
+2. Data Preparation (shuffle_data.py and images_to_pickle.py):
+- shuffle_data.py randomizes and renames images in each character folder to shuffle the dataset.
+- images_to_pickle.py reads images from train/test folders, converts them to grayscale numpy arrays.
+- Labels are mapped from romanized character names to integers.
+- The dataset is shuffled and saved as pickle files for efficient loading during training/testing.
+
+3. Model Training (nsl.py):
+- A Convolutional Neural Network (CNN) is defined with multiple Conv2D, MaxPooling, Dropout, and Dense layers.
+- Data augmentation is applied on training images (rotation, shift, shear, zoom).
+- The model is compiled with Adam optimizer and categorical crossentropy loss.
+- Early stopping and model checkpoint callbacks are used to prevent overfitting and save the best model.
+- The model is trained for up to 10 epochs on the prepared dataset.
+- Training and validation accuracy and loss are plotted.
+- The final trained model is saved for later use.
+
+4. Model Evaluation (model_reports.py):
+- The trained model is loaded along with test images and labels.
+- Test images are preprocessed to match training conditions.
+- Predictions are made on test images.
+- A confusion matrix and classification report are generated to evaluate model performance.
+- Prediction time is measured to assess efficiency.
+- The confusion matrix is plotted and saved as an image.
+
+5. User Interface and Real-time Prediction (main.py):
+- A Tkinter-based GUI application is created.
+- The app captures webcam feed and processes the region of interest for prediction.
+- The trained model predicts the Nepali sign language character in real-time.
+- Users can also upload images for prediction.
+- Predicted characters are displayed on the GUI.
+- Text-to-speech functionality is implemented to read out recognized words.
+- Keyboard shortcuts allow building words and sentences from predicted signs.
+
+Possible Questions and Suitable Answers:
+
+Q1: How do you collect and prepare the data for training?
+A1: We capture images of Nepali characters using a webcam, process and save them in train/test folders with a 70-30 split. The images are shuffled and converted to pickle files for efficient loading.
+
+Q2: What kind of model architecture did you use?
+A2: We used a Convolutional Neural Network with multiple convolutional and pooling layers, followed by dense layers. Data augmentation was applied to improve generalization.
+
+Q3: How do you prevent overfitting during training?
+A3: We use early stopping to halt training when validation loss stops improving and save the best model using model checkpointing.
+
+Q4: How do you evaluate the model's performance?
+A4: We use a confusion matrix and classification report on test data to assess accuracy and errors. We also measure prediction time for efficiency.
+
+Q5: How does the real-time prediction work in the GUI?
+A5: The app captures webcam frames, processes the region of interest, and uses the trained model to predict the sign. Predictions are displayed and can be converted to speech.
+
+Q6: Can the system handle new or unknown signs?
+A6: The model is trained on a fixed set of signs. Unknown signs may not be recognized accurately. Future work could include expanding the dataset.
+
+Q7: What challenges did you face during the project?
+A7: Challenges included collecting sufficient quality data, handling variations in hand gestures, and optimizing the model for real-time performance.
+
+Q8: How can this project be extended or improved?
+A8: Extensions could include adding more signs, improving the model architecture, integrating with mobile devices, or supporting continuous sign language sentences.
+
+This guide should help you explain the project clearly and answer common questions during your presentation.
