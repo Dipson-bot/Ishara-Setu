@@ -7,7 +7,7 @@
 ## Table of Contents
 
 - [Ishara-Setu](#ishara-setu)
-- [Project Structure](#project-structure)
+- [Project Structure](#Project-Structure)
 - [Requirements](#requirements)
 - [Usage](#usage)
 - [Notes](#notes)
