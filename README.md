@@ -4,9 +4,9 @@
 
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
-- [About](#ishara-setu)
+- [Ishara-Setu](#ishara-setu)
 - [Project Structure](#project-structure)
 - [Requirements](#requirements)
 - [Usage](#usage)
