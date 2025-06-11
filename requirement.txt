@@ -1,7 +1,7 @@
 #yo .venv bhanney virtual environvent banauna 
 python -m venv .venv
 
-#yo venv lai activate garna
+#yo venv lai activate garney
 .venv/Scripts/activate
 
 pip install tensorflow keras scikit-learn numpy matplotlib opencv-python pillow pygame gTTS
