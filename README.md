@@ -1,8 +1,28 @@
 # Ishara-Setu
 
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+
+---
+
+## 📋 Table of Contents
+
+- [About](#ishara-setu)
+- [Project Structure](#project-structure)
+- [Requirements](#requirements)
+- [Usage](#usage)
+- [Notes](#notes)
+- [Running the Project](#running-the-project)
+- [License](#license)
+
+---
+
+## 📘 Ishara-Setu
+
 Ishara-Setu is a Nepali Sign Language recognition project that includes data collection, image preprocessing, machine learning model training, and a user interface for real-time recognition.
 
-## Project Structure
+---
+
+## 🗂️ Project Structure
 
 - `1. Data Collection/`: Scripts for collecting and shuffling data.
 - `2. Image Preprocessing/`: Image preprocessing steps and sample images.
@@ -11,29 +31,38 @@ Ishara-Setu is a Nepali Sign Language recognition project that includes data col
 - `5. Analysis/`: Analysis images and reports.
 - `6. UI/`: User interface scripts and resources.
 
-## Requirements
+---
+
+## ⚙️ Requirements
 
 Install the required Python packages listed in `requirement.txt`.
 
-## Usage
+---
+
+## 🚀 Usage
 
 - Use the scripts in `1. Data Collection/` to collect and prepare data.
 - Preprocess images using scripts in `2. Image Preprocessing/`.
 - Train and validate models using scripts in `4. ML Codes/`.
 - Use the UI in `6. UI/` for real-time sign language recognition.
 
-## Notes
+---
+
+## 📝 Notes
 
 - Large model files, datasets, and generated files are excluded from the repository to keep it lightweight.
 - Please refer to the project files for detailed implementation.
 
-### Running the Project
+---
+
+## ▶️ Running the Project
 
 Since large model files, datasets, and other generated files are excluded from this repository, to run the project successfully on your machine, please follow these steps:
 
 1. **Download Required Files and Folders**:  
-   Download the following files and folders from the Google Drive link:  
-   [Google Drive Project Folder](https://drive.google.com/drive/folders/1ciFBrT-N5Nv-2_vOE9Pn9AEoF-0mjy4r?usp=sharing)
+   Download the following files and folders from the Google Drive link:
+
+   [![Google Drive](https://img.shields.io/badge/Google%20Drive-Folder-blue?logo=google-drive&style=for-the-badge)](https://drive.google.com/drive/folders/1ciFBrT-N5Nv-2_vOE9Pn9AEoF-0mjy4r?usp=sharing)
 
    - `data/`
    - `newdata/`
@@ -58,6 +87,8 @@ Since large model files, datasets, and other generated files are excluded from t
 
 Following these steps will help you set up the project environment and run the project without issues.
 
-## License
+---
+
+## 📄 License
 
 Refer to the [LICENSE](LICENSE) file in the project for license details.
