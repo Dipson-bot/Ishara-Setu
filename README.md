@@ -22,7 +22,7 @@ Ishara-Setu is a Nepali Sign Language recognition project that includes data col
 
 ---
 
-## 🗂️ Project Structure
+## 🗂️ Project-Structure
 
 - `1. Data Collection/`: Scripts for collecting and shuffling data.
 - `2. Image Preprocessing/`: Image preprocessing steps and sample images.
