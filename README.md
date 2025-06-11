@@ -60,4 +60,4 @@ Following these steps will help you set up the project environment and run the p
 
 ## License
 
-Refer to the LICENSE file in the project for license details.
+Refer to the [LICENSE](LICENSE) file in the project for license details.
