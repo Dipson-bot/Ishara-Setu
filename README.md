@@ -18,7 +18,7 @@
 
 ## 📘 Ishara-Setu
 
-Ishara-Setu is a Nepali Sign Language recognition project that includes data collection, image preprocessing, machine learning model training, and a user interface for real-time recognition.
+Ishara-Setu is a Nepali Sign Language detection and recognition project that includes data collection, image preprocessing, machine learning model training, and a user interface for real-time recognition.
 
 ---
 
@@ -59,8 +59,7 @@ Install the required Python packages listed in `requirement.txt`.
 
 Since large model files, datasets, and other generated files are excluded from this repository, to run the project successfully on your machine, please follow these steps:
 
-1. **Download Required Files and Folders**:  
-   Download the following files and folders from the Google Drive link:
+1. **Download Required Files and Folders**:Download the following files and folders from the Google Drive link:
 
    [![Google Drive](https://img.shields.io/badge/Google%20Drive-Folder-blue?logo=google-drive&style=for-the-badge)](https://drive.google.com/drive/folders/1ciFBrT-N5Nv-2_vOE9Pn9AEoF-0mjy4r?usp=sharing)
 
@@ -71,18 +70,13 @@ Since large model files, datasets, and other generated files are excluded from t
    - All model files with `.h5` extension (e.g., `best_model.h5`, `finalNsl.h5`, etc.)
    - Pickle files (`*.pkl`)
    - Database file `gesture_db1.db` located in `6. UI/` folder
-
-2. **Place Files Correctly**:  
-   After downloading, place these files and folders in the root directory of the project, maintaining the same folder structure.
-
-3. **Generate Missing Files (Optional)**:  
-   If you prefer not to download some files, you can generate them by running the respective scripts:
+2. **Place Files Correctly**:After downloading, place these files and folders in the root directory of the project, maintaining the same folder structure.
+3. **Generate Missing Files (Optional)**:If you prefer not to download some files, you can generate them by running the respective scripts:
 
    - Use scripts in `3. Images To Pickle/` to generate pickle files.
    - Use scripts in `4. ML Codes/` to train models and generate `.h5` files.
    - Create or set up the database file as needed for the UI.
-
-4. **Install Dependencies**:  
+4. **Install Dependencies**:
    Install the required Python packages listed in `requirement.txt`.
 
 Following these steps will help you set up the project environment and run the project without issues.
